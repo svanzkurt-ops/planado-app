@@ -1,0 +1,54 @@
+import { providers } from '../data/mockData';
+
+function ComparePage() {
+  const comparePair = [providers[0], providers[1]];
+
+  return (
+    <div className="page">
+      <section className="section-block">
+        <h2>Compare packages</h2>
+
+        <div className="comparison-table-wrap">
+          <table className="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                {comparePair.map((provider) => (
+                  <th key={provider.id}>{provider.name}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Starts at</td>
+                {comparePair.map((provider) => (
+                  <td key={provider.id}>₱{provider.startsAt.toLocaleString()}</td>
+                ))}
+              </tr>
+              <tr>
+                <td>Ratings</td>
+                {comparePair.map((provider) => (
+                  <td key={provider.id}>★ {provider.rating}</td>
+                ))}
+              </tr>
+              <tr>
+                <td>Location</td>
+                {comparePair.map((provider) => (
+                  <td key={provider.id}>{provider.location}</td>
+                ))}
+              </tr>
+              <tr>
+                <td>Category</td>
+                {comparePair.map((provider) => (
+                  <td key={provider.id}>{provider.category}</td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+export default ComparePage;
